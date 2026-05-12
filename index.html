@@ -1,0 +1,1276 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Proposta BPO Financeiro · Ocre Pizza Bar · PROFINX</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;1,9..144,400;1,9..144,500&family=Geist:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --navy: #004AAC;
+      --navy-mid: #0060CC;
+      --azure: #079EF7;
+      --teal: #0D9488;
+      --teal-mid: #0F766E;
+      --paper: #F4F7FF;
+      --paper-warm: #EEF3FF;
+      --line: #D6E4F7;
+      --line-strong: #B8CEEE;
+      --ink: #001E4A;
+      --ink-muted: #3A5580;
+      --ink-light: #6A88AA;
+      --white: #FFFFFF;
+      --gold: #079EF7;
+      /* acento PROFINX = azure */
+      --gold-bright: #38B2FA;
+      --success: #0D9488;
+      --warn: #D97706;
+      --danger: #B91C1C;
+      --brand-primary: #004AAC;
+      --brand-secondary: #079EF7;
+      --brand-accent: #0D9488;
+      --steel: #93B8D8;
+      --steel-soft: #BDD5EC;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Geist', system-ui, sans-serif;
+      background: var(--paper);
+      color: var(--ink);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── TOOLBAR ── */
+    .prop-toolbar {
+      background: var(--navy);
+      color: #fff;
+      padding: 14px 32px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 4px 20px rgba(0, 74, 172, .25);
+    }
+
+    .prop-toolbar-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-family: 'Fraunces', serif;
+      font-size: 16px;
+      font-weight: 600;
+    }
+
+    .prop-toolbar-logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .cover-logo-img {
+      height: 70px;
+      /* ajuste como quiser */
+      width: auto;
+      display: block;
+    }
+
+    .pbar-icon {
+      width: 32px;
+      height: 32px;
+      background: var(--azure);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+    }
+
+    .prop-toolbar-actions {
+      display: flex;
+      gap: 8px;
+    }
+
+    .tbtn {
+      background: transparent;
+      border: 1px solid transparent;
+      color: var(--steel-soft);
+      padding: 8px 14px;
+      font-family: 'Geist', sans-serif;
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all .2s;
+    }
+
+    .tbtn:hover {
+      color: #fff;
+      background: var(--navy-mid);
+    }
+
+    .tbtn-primary {
+      background: var(--azure);
+      color: var(--navy);
+      font-weight: 700;
+      border-color: var(--azure);
+    }
+
+    .tbtn-primary:hover {
+      background: var(--gold-bright);
+      color: var(--navy);
+    }
+
+    /* ── DOC WRAPPER ── */
+    .proposal-doc {
+      max-width: 900px;
+      margin: 32px auto 80px;
+      background: var(--white);
+      box-shadow: 0 30px 80px rgba(0, 74, 172, .12);
+    }
+
+    /* ── CAPA ── */
+    .prop-cover {
+      background: linear-gradient(140deg, #001E4A 0%, #004AAC 55%, #079EF7 100%);
+      color: #fff;
+      padding: 80px 64px 64px;
+      position: relative;
+      overflow: hidden;
+      min-height: 580px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .prop-cover::before {
+      content: '';
+      position: absolute;
+      top: -80px;
+      right: -80px;
+      width: 360px;
+      height: 360px;
+      border: 1.5px solid rgba(13, 148, 136, .35);
+      border-radius: 50%;
+    }
+
+    .prop-cover::after {
+      content: '';
+      position: absolute;
+      bottom: -120px;
+      right: 100px;
+      width: 240px;
+      height: 240px;
+      border: 1px solid rgba(7, 158, 247, .25);
+      border-radius: 50%;
+    }
+
+    .prop-cover-eyebrow {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--azure);
+      margin-bottom: 6px;
+    }
+
+    .prop-cover-logo-wrap {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 48px;
+    }
+
+    .cover-logo-icon {
+      width: 40px;
+      height: 40px;
+      background: var(--azure);
+      clip-path: polygon(50% 0%, 100% 100%, 0% 100%);
+    }
+
+    .cover-logo-text {
+      font-family: 'Fraunces', serif;
+      font-size: 20px;
+      font-weight: 700;
+      letter-spacing: -.01em;
+    }
+
+    .cover-logo-text span {
+      color: var(--azure);
+    }
+
+    .prop-cover-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: rgba(13, 148, 136, .9);
+      margin-bottom: 20px;
+    }
+
+    .prop-cover-title {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(36px, 5vw, 56px);
+      font-weight: 400;
+      line-height: 1.08;
+      letter-spacing: -.025em;
+      margin-bottom: 36px;
+    }
+
+    .prop-cover-title em {
+      font-style: italic;
+      color: var(--azure);
+      font-weight: 500;
+    }
+
+    .prop-cover-meta {
+      display: flex;
+      gap: 48px;
+      flex-wrap: wrap;
+      position: relative;
+    }
+
+    .prop-cover-meta-item {}
+
+    .prop-cover-meta-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: rgba(13, 148, 136, .85);
+      margin-bottom: 4px;
+    }
+
+    .prop-cover-meta-value {
+      font-size: 14px;
+      font-weight: 500;
+      color: #fff;
+    }
+
+    /* ── SEÇÕES ── */
+    .prop-section {
+      padding: 72px 64px;
+      border-bottom: 1px solid var(--line);
+      position: relative;
+    }
+
+    .prop-section:last-child {
+      border-bottom: none;
+    }
+
+    .prop-section-eyebrow {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: .16em;
+      text-transform: uppercase;
+      color: var(--brand-accent);
+      margin-bottom: 14px;
+    }
+
+    .prop-section-title {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(28px, 4vw, 42px);
+      font-weight: 500;
+      line-height: 1.1;
+      letter-spacing: -.025em;
+      color: var(--ink);
+      margin-bottom: 20px;
+      max-width: 680px;
+    }
+
+    .prop-section-title em {
+      font-style: italic;
+      color: var(--brand-primary);
+      font-weight: 600;
+    }
+
+    .prop-section-lead {
+      font-size: 15px;
+      color: var(--ink-muted);
+      max-width: 660px;
+      line-height: 1.65;
+      margin-bottom: 32px;
+    }
+
+    .section-num {
+      position: absolute;
+      top: 52px;
+      right: 60px;
+      font-family: 'Fraunces', serif;
+      font-size: 110px;
+      font-weight: 200;
+      font-style: italic;
+      color: var(--brand-accent);
+      opacity: .12;
+      line-height: 1;
+      letter-spacing: -.04em;
+    }
+
+    .prop-callout {
+      background: var(--paper-warm);
+      padding: 24px 28px;
+      border-left: 3px solid var(--brand-accent);
+      margin: 24px 0;
+      font-family: 'Fraunces', serif;
+      font-size: 17px;
+      font-style: italic;
+      color: var(--ink);
+      line-height: 1.55;
+    }
+
+    /* ── DIAGNÓSTICO CARDS ── */
+    .diag-grid {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 32px;
+      margin: 32px 0;
+      align-items: start;
+    }
+
+    .diag-score-card {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      padding: 28px 20px;
+      text-align: center;
+    }
+
+    .diag-icon {
+      font-size: 44px;
+      margin-bottom: 10px;
+    }
+
+    .diag-name {
+      font-family: 'Fraunces', serif;
+      font-size: 26px;
+      font-weight: 600;
+      color: var(--brand-primary);
+      line-height: 1;
+    }
+
+    .diag-fase {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      letter-spacing: .1em;
+      text-transform: uppercase;
+      color: var(--ink-light);
+      margin-top: 8px;
+    }
+
+    .diag-score-box {
+      margin-top: 16px;
+      padding-top: 14px;
+      border-top: 1px solid var(--line);
+    }
+
+    .diag-score-num {
+      font-family: 'Fraunces', serif;
+      font-size: 40px;
+      font-weight: 600;
+      color: var(--brand-accent);
+      line-height: 1;
+      letter-spacing: -.02em;
+    }
+
+    .diag-score-den {
+      font-size: 12px;
+      color: var(--ink-light);
+    }
+
+    .signs-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin: 24px 0;
+    }
+
+    .sign-item {
+      background: var(--paper);
+      padding: 14px 16px;
+      border-left: 2px solid var(--brand-accent);
+      font-size: 13px;
+      color: var(--ink);
+      line-height: 1.5;
+    }
+
+    /* ── OPERAÇÕES CARD ── */
+    .ops-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      border: 1px solid var(--line);
+      margin: 28px 0;
+    }
+
+    .ops-item {
+      padding: 20px 16px;
+      border-right: 1px solid var(--line);
+      text-align: center;
+    }
+
+    .ops-item:last-child {
+      border-right: none;
+    }
+
+    .ops-num {
+      font-family: 'Fraunces', serif;
+      font-size: 32px;
+      font-weight: 600;
+      color: var(--brand-primary);
+      letter-spacing: -.02em;
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+
+    .ops-label {
+      font-size: 12px;
+      color: var(--ink-muted);
+      line-height: 1.4;
+    }
+
+    /* ── ESCOPO TABLE ── */
+    .prop-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+    }
+
+    .prop-table th {
+      text-align: left;
+      padding: 13px 16px;
+      background: var(--navy);
+      color: #fff;
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+    }
+
+    .prop-table td {
+      padding: 13px 16px;
+      border-bottom: 1px solid var(--line);
+      font-size: 13px;
+      color: var(--ink);
+      vertical-align: top;
+    }
+
+    .prop-table tr:nth-child(even) td {
+      background: var(--paper);
+    }
+
+    .prop-table .v {
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 600;
+      text-align: right;
+      white-space: nowrap;
+      color: var(--brand-primary);
+    }
+
+    .inc-dot {
+      display: inline-block;
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--success);
+      margin-right: 8px;
+      flex-shrink: 0;
+    }
+
+    /* ── TIMELINE ── */
+    .prop-timeline {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 0;
+      margin: 28px 0;
+    }
+
+    .tl-item {
+      padding: 24px;
+      background: var(--paper);
+      border-right: 1px solid var(--line);
+    }
+
+    .tl-item:last-child {
+      border-right: none;
+    }
+
+    .tl-tag {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 10px;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--brand-accent);
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    .tl-title {
+      font-family: 'Fraunces', serif;
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 8px;
+      line-height: 1.3;
+    }
+
+    .tl-desc {
+      font-size: 13px;
+      color: var(--ink-muted);
+      line-height: 1.5;
+    }
+
+    /* ── SEÇÃO DARK (investimento) ── */
+    .prop-section.dark {
+      background: linear-gradient(140deg, #001E4A 0%, #004AAC 100%);
+      color: #fff;
+      border-bottom-color: #001E4A;
+    }
+
+    .prop-section.dark .prop-section-title {
+      color: #fff;
+    }
+
+    .prop-section.dark .prop-section-title em {
+      color: var(--azure);
+    }
+
+    .prop-section.dark .prop-section-lead {
+      color: var(--steel-soft);
+    }
+
+    .prop-section.dark .section-num {
+      color: var(--azure);
+    }
+
+    .invest-card {
+      background: rgba(255, 255, 255, .04);
+      border: 1px solid rgba(255, 255, 255, .12);
+      padding: 32px;
+      margin: 24px 0;
+    }
+
+    .invest-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      padding: 13px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, .08);
+      font-size: 14px;
+      color: var(--steel-soft);
+    }
+
+    .invest-row:last-child {
+      border-bottom: none;
+    }
+
+    .invest-row .v {
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 600;
+      color: #fff;
+      font-size: 15px;
+    }
+
+    .invest-row.total {
+      border-top: 2px solid var(--azure);
+      padding-top: 20px;
+      margin-top: 10px;
+      font-family: 'Fraunces', serif;
+      font-size: 22px;
+      font-weight: 600;
+      color: #fff;
+      border-bottom: none;
+    }
+
+    .invest-row.total .v {
+      font-family: 'Fraunces', serif;
+      font-size: 38px;
+      color: var(--azure);
+      letter-spacing: -.02em;
+    }
+
+    .invest-row.total-unica .v {
+      color: var(--azure);
+      font-size: 24px;
+    }
+
+    .invest-meta {
+      margin-top: 20px;
+      font-size: 13px;
+      color: var(--steel);
+      line-height: 1.65;
+      border-top: 1px solid rgba(255, 255, 255, .1);
+      padding-top: 16px;
+    }
+
+    /* ── CTA ── */
+    .prop-cta {
+      background: var(--navy);
+      color: #fff;
+      padding: 72px 64px;
+      text-align: center;
+    }
+
+    .cta-eyebrow {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 11px;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--azure);
+      margin-bottom: 16px;
+    }
+
+    .cta-title {
+      font-family: 'Fraunces', serif;
+      font-size: clamp(28px, 4vw, 42px);
+      font-weight: 500;
+      line-height: 1.12;
+      margin-bottom: 18px;
+      letter-spacing: -.02em;
+    }
+
+    .cta-title em {
+      font-style: italic;
+      color: var(--azure);
+    }
+
+    .cta-sub {
+      font-size: 15px;
+      color: var(--steel-soft);
+      max-width: 560px;
+      margin: 0 auto 36px;
+      line-height: 1.65;
+    }
+
+    .cta-btn {
+      display: inline-block;
+      background: var(--teal);
+      color: #fff;
+      padding: 16px 40px;
+      font-family: 'Geist', sans-serif;
+      font-weight: 700;
+      font-size: 15px;
+      text-decoration: none;
+      transition: all .2s;
+      letter-spacing: .02em;
+      border: none;
+      cursor: pointer;
+    }
+
+    .cta-btn:hover {
+      background: var(--teal-mid);
+      transform: translateY(-1px);
+    }
+
+    /* ── FOOTER ── */
+    .prop-footer {
+      background: #001230;
+      color: var(--steel);
+      padding: 28px 64px;
+      text-align: center;
+      font-size: 12px;
+      font-family: 'JetBrains Mono', monospace;
+      letter-spacing: .05em;
+    }
+
+    .prop-footer-brand {
+      font-family: 'Fraunces', serif;
+      font-style: italic;
+      font-size: 15px;
+      color: var(--azure);
+      margin-bottom: 6px;
+      letter-spacing: 0;
+    }
+
+    .footer-logo {
+      height: 38px;
+      width: auto;
+      opacity: 0.95;
+    }
+
+    /* ── PRINT ── */
+    @media print {
+      .prop-toolbar {
+        display: none !important;
+      }
+
+      .proposal-doc {
+        box-shadow: none;
+        margin: 0;
+        max-width: 100%;
+      }
+
+      .prop-cover {
+        min-height: auto;
+      }
+
+      .prop-section,
+      .prop-cover,
+      .prop-cta {
+        page-break-inside: avoid;
+      }
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 700px) {
+
+      .prop-cover,
+      .prop-section,
+      .prop-cta,
+      .prop-footer {
+        padding-left: 28px;
+        padding-right: 28px;
+      }
+
+      .prop-cover-title {
+        font-size: 32px;
+      }
+
+      .prop-cover-meta {
+        flex-direction: column;
+        gap: 20px;
+      }
+
+      .diag-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .ops-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .prop-timeline {
+        grid-template-columns: 1fr;
+      }
+
+      .signs-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .prop-table {
+        font-size: 12px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- TOOLBAR -->
+  <div class="prop-toolbar">
+    <div class="prop-toolbar-brand">
+      <div class="prop-toolbar-logo">
+        <div class="pbar-icon"></div>
+        <span>PROFINX <span
+            style="color: var(--steel-soft); font-weight: 400; font-size: 13px; margin-left: 4px; font-family: Geist, sans-serif;">BPO
+            Financeiro</span></span>
+      </div>
+    </div>
+    <div class="prop-toolbar-actions">
+      <button class="tbtn" onclick="copiarMsg()">📱 WhatsApp</button>
+      <button class="tbtn tbtn-primary" onclick="window.print()">🖨 Imprimir / PDF</button>
+    </div>
+  </div>
+
+  <!-- DOCUMENTO -->
+  <div class="proposal-doc">
+
+    <!-- ══════════ CAPA ══════════ -->
+    <div class="prop-cover">
+      <div>
+        <div class="prop-cover-logo-wrap">
+          <img src="https://www.profinx.com.br/logo-branco.svg" alt="PROFINX BPO Financeiro" class="cover-logo-img">
+        </div>
+        <div class="prop-cover-tag">Proposta Comercial · BPO Financeiro</div>
+        <h1 class="prop-cover-title">Uma proposta sob medida para<br><em>Ocre Pizza Bar</em></h1>
+      </div>
+      <div>
+        <div class="prop-cover-meta">
+          <div class="prop-cover-meta-item">
+            <div class="prop-cover-meta-label">Preparada para</div>
+            <div class="prop-cover-meta-value">Ocre Pizza Bar · Rio de Janeiro/RJ</div>
+          </div>
+          <div class="prop-cover-meta-item">
+            <div class="prop-cover-meta-label">Data</div>
+            <div class="prop-cover-meta-value" id="coverDate">—</div>
+          </div>
+          <div class="prop-cover-meta-item">
+            <div class="prop-cover-meta-label">Validade</div>
+            <div class="prop-cover-meta-value">30 dias</div>
+          </div>
+          <div class="prop-cover-meta-item">
+            <div class="prop-cover-meta-label">Proposta nº</div>
+            <div class="prop-cover-meta-value" id="propNum">—</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══════════ I — CENÁRIO ATUAL ══════════ -->
+    <div class="prop-section">
+      <div class="section-num">I</div>
+      <div class="prop-section-eyebrow">Capítulo I · O cenário hoje</div>
+      <h2 class="prop-section-title">Onde a <em>Ocre Pizza Bar</em> está hoje.</h2>
+      <p class="prop-section-lead">Antes de qualquer proposta, é importante traduzir em palavras o que acontece nos
+        bastidores financeiros de uma operação de food & beverage com o volume e a intensidade da Ocre. Aplicamos o
+        Método RADAR — análise em 5 dimensões — e o diagnóstico é claro.</p>
+
+      <div class="diag-grid">
+        <div class="diag-score-card">
+          <div class="diag-icon">⚙️</div>
+          <div class="diag-name">Tático</div>
+          <div class="diag-fase">Fase de Organização</div>
+          <div class="diag-score-box">
+            <div class="diag-score-num">42<span
+                style="font-size: 14px; color: var(--ink-light); font-weight: 400;">/72</span></div>
+            <div class="diag-score-den">pontos RADAR</div>
+          </div>
+        </div>
+        <div>
+          <p style="font-size: 15px; line-height: 1.65; color: var(--ink);">A operação da Ocre já tem disciplina mínima:
+            as vendas estão concentradas em um único banco (Itaú) e em uma adquirente (Getnet/Laranjinha), o que
+            simplifica o fluxo — mas o volume de <strong>1.050 pedidos por mês</strong> e um faturamento de <strong>R$
+              150 mil/mês</strong> exige muito mais do que controle manual.</p>
+          <p style="font-size: 15px; line-height: 1.65; color: var(--ink-muted); margin-top: 14px;">O financeiro ainda é
+            reativo: as conciliações dependem da atenção do gestor, os relatórios chegam tarde (ou não chegam), e a
+            tomada de decisão sobre margem, custos e fluxo de caixa opera no escuro em boa parte do mês.</p>
+        </div>
+      </div>
+
+      <!-- dados operacionais -->
+      <h3 style="font-family: 'Fraunces', serif; font-size: 20px; font-weight: 600; margin-bottom: 16px;">Operação
+        mapeada</h3>
+      <div class="ops-grid">
+        <div class="ops-item">
+          <div class="ops-num">1.050</div>
+          <div class="ops-label">pedidos/mês<br>(lançamentos a receber)</div>
+        </div>
+        <div class="ops-item">
+          <div class="ops-num">40</div>
+          <div class="ops-label">contas a pagar<br>por mês</div>
+        </div>
+        <div class="ops-item">
+          <div class="ops-num">R$ 150k</div>
+          <div class="ops-label">faturamento<br>mensal estimado</div>
+        </div>
+        <div class="ops-item">
+          <div class="ops-num">1 + 1</div>
+          <div class="ops-label">banco (Itaú) +<br>adquirente (Laranjinha)</div>
+        </div>
+      </div>
+
+      <h3 style="font-family: 'Fraunces', serif; font-size: 20px; font-weight: 600; margin: 28px 0 14px;">Sinais
+        identificados no diagnóstico</h3>
+      <div class="signs-grid">
+        <div class="sign-item">Volume de vendas expressivo sem conciliação sistemática de adquirente, expondo a empresa
+          a divergências entre o que foi faturado e o que foi liquidado.</div>
+        <div class="sign-item">Relatórios financeiros chegam com atraso ou dependem do contador externo — a visão de
+          resultado do mês só aparece no mês seguinte.</div>
+        <div class="sign-item">Fluxo de caixa projetado de forma intuitiva: o gestor sente o caixa, mas não o enxerga em
+          números antecipados.</div>
+        <div class="sign-item">Contas a pagar geridas manualmente — risco de duplicidade, atraso de pagamentos e perda
+          de prazos de vencimento.</div>
+        <div class="sign-item">DRE financeira inexistente ou montada uma vez por mês sem análise de margem por categoria
+          de produto.</div>
+        <div class="sign-item">Decisões de investimento (reforma, equipe, cardápio) tomadas sem análise de impacto no
+          caixa e no ponto de equilíbrio.</div>
+      </div>
+    </div>
+
+    <!-- ══════════ II — O QUE ESTÁ EM JOGO ══════════ -->
+    <div class="prop-section">
+      <div class="section-num">II</div>
+      <div class="prop-section-eyebrow">Capítulo II · O que está em jogo</div>
+      <h2 class="prop-section-title">O custo silencioso de <em>continuar como está</em>.</h2>
+      <p class="prop-section-lead">A maior parte dos riscos de uma operação food & beverage no estágio da Ocre não
+        aparece como crise visível — aparece como tempo perdido, decisões erradas e margens corroídas sem que ninguém
+        perceba.</p>
+
+      <div class="prop-callout">
+        Com 1.050 pedidos por mês, uma divergência de 2% na conciliação da adquirente representa R$ 3.000/mês
+        desaparecendo silenciosamente. Com 40 contas a pagar geridas sem controle, um único prazo esquecido pode custar
+        mais do que 3 meses de BPO.
+      </div>
+
+      <p style="font-size: 15px; line-height: 1.65; color: var(--ink-muted); margin-top: 20px;">É neste ponto que um BPO
+        Financeiro deixa de ser uma despesa e se torna uma decisão de proteção de margem. O retorno não aparece numa
+        planilha — aparece no tempo que o gestor recupera para o negócio, nas decisões que passam a ser tomadas com
+        dados reais e nos erros que nunca chegam a acontecer.</p>
+
+      <div style="display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; margin-top: 32px;">
+        <div style="background: var(--paper); border-left: 3px solid var(--brand-primary); padding: 20px;">
+          <div
+            style="font-family: 'Fraunces', serif; font-size: 28px; font-weight: 600; color: var(--brand-primary); margin-bottom: 4px;">
+            ~15h</div>
+          <div style="font-size: 13px; color: var(--ink-muted);">de trabalho manual/mês recuperadas para a gestão do
+            negócio</div>
+        </div>
+        <div style="background: var(--paper); border-left: 3px solid var(--brand-accent); padding: 20px;">
+          <div
+            style="font-family: 'Fraunces', serif; font-size: 28px; font-weight: 600; color: var(--brand-accent); margin-bottom: 4px;">
+            100%</div>
+          <div style="font-size: 13px; color: var(--ink-muted);">dos pedidos conciliados entre caixa, adquirente e banco
+            todo mês</div>
+        </div>
+        <div style="background: var(--paper); border-left: 3px solid var(--azure); padding: 20px;">
+          <div
+            style="font-family: 'Fraunces', serif; font-size: 28px; font-weight: 600; color: var(--azure); margin-bottom: 4px;">
+            ZERO</div>
+          <div style="font-size: 13px; color: var(--ink-muted);">decisões tomadas no "feeling" sem números confiáveis
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══════════ III — ESCOPO DO SERVIÇO ══════════ -->
+    <div class="prop-section">
+      <div class="section-num">III</div>
+      <div class="prop-section-eyebrow">Capítulo III · O que entregamos</div>
+      <h2 class="prop-section-title">O escopo completo do <em>BPO Financeiro</em> para a Ocre.</h2>
+      <p class="prop-section-lead">Um único plano, desenhado para a operação real da Ocre Pizza Bar — considerando o
+        volume de vendas, a estrutura bancária e as necessidades de controle e visibilidade de um food & beverage de
+        médio porte no Rio de Janeiro.</p>
+
+      <table class="prop-table">
+        <thead>
+          <tr>
+            <th style="width: 32%;">Frente de trabalho</th>
+            <th>O que está incluso</th>
+            <th style="width: 14%; text-align: center;">Frequência</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Implantação e Suporte</strong></td>
+            <td>
+              <div style="display:flex; align-items:center;"><span class="inc-dot"></span>Implantação, levantamento
+                documental e treinamento</div>
+              <div style="display:flex; align-items:center; margin-top:4px;"><span class="inc-dot"></span>Gerente de
+                conta exclusivo PROFINX</div>
+              <div style="display:flex; align-items:center; margin-top:4px;"><span class="inc-dot"></span>Atendimento
+                remoto via WhatsApp e videochamada</div>
+            </td>
+            <td
+              style="text-align:center; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--ink-light);">
+              Contínuo</td>
+          </tr>
+          <tr>
+            <td><strong>Conciliação Financeira</strong></td>
+            <td>
+              <div style="display:flex; align-items:center;"><span class="inc-dot"></span>Conciliação bancária semanal —
+                Itaú (conta corrente)</div>
+              <div style="display:flex; align-items:center; margin-top:4px;"><span class="inc-dot"></span>Conciliação
+                completa da adquirente Laranjinha (Getnet)</div>
+              <div style="display:flex; align-items:center; margin-top:4px;"><span class="inc-dot"></span>Conciliação
+                dos 1.050 pedidos mensais (iFood, balcão, delivery próprio)</div>
+              <div style="display:flex; align-items:center; margin-top:4px;"><span class="inc-dot"></span>Conciliação de
+                caixa</div>
+            </td>
+            <td
+              style="text-align:center; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--ink-light);">
+              semanal / Mensal</td>
+          </tr>
+          <tr>
+            <td><strong>Contas a Receber</strong></td>
+            <td>
+              <div style="display:flex; align-items:center;"><span class="inc-dot"></span>Lançamento e controle de todos
+                os recebimentos (1.050/mês)</div>
+              <div style="display:flex; align-items:center; margin-top:4px;"><span class="inc-dot"></span>Controle de
+                repasses de adquirente e prazo de liquidação</div>
+              <div style="display:flex; align-items:center; margin-top:4px;"><span class="inc-dot"></span>Acompanhamento
+                de chargeback e contestações</div>
+            </td>
+            <td
+              style="text-align:center; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--ink-light);">
+              Semanal</td>
+          </tr>
+          <tr>
+            <td><strong>Contas a Pagar</strong></td>
+            <td>
+              <div style="display:flex; align-items:center;"><span class="inc-dot"></span>Controle e lançamento das 40
+                contas/mês</div>
+              <div style="display:flex; align-items:center; margin-top:4px;"><span class="inc-dot"></span>Agendamento de
+                pagamentos (insumos, fornecedores, encargos)</div>
+              <div style="display:flex; align-items:center; margin-top:4px;"><span class="inc-dot"></span>Relatório
+                semanal de contas vencendo</div>
+            </td>
+            <td
+              style="text-align:center; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--ink-light);">
+              Semanal</td>
+          </tr>
+          <tr>
+            <td><strong>Relatórios Gerenciais</strong></td>
+            <td>
+              <div style="display:flex; align-items:center;"><span class="inc-dot"></span>Fluxo de caixa projetado
+                (30/60/90 dias)</div>
+              <div style="display:flex; align-items:center; margin-top:4px;"><span class="inc-dot"></span>DRE Financeira
+                mensal</div>
+              <div style="display:flex; align-items:center; margin-top:4px;"><span class="inc-dot"></span>Relatório de
+                pagamentos e recebimentos (semanal e mensal)</div>
+            </td>
+            <td
+              style="text-align:center; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--ink-light);">
+              Semanal / Mensal</td>
+          </tr>
+          <tr>
+            <td><strong>Faturamento</strong></td>
+            <td>
+              <div style="display:flex; align-items:center;"><span class="inc-dot"></span>Emissão e baixa de boletos
+                bancários</div>
+              <div style="display:flex; align-items:center; margin-top:4px;"><span class="inc-dot"></span>Suporte à
+                emissão de notas fiscais de serviços</div>
+            </td>
+            <td
+              style="text-align:center; font-family: 'JetBrains Mono', monospace; font-size: 11px; color: var(--ink-light);">
+              Sob demanda</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <div
+        style="background: linear-gradient(135deg, #004AAC, #079EF7); color: #fff; padding: 28px 32px; margin-top: 28px; display: grid; grid-template-columns: 1fr auto; gap: 20px; align-items: center;">
+        <div>
+          <div
+            style="font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: .12em; text-transform: uppercase; color: rgba(13,148,136,.9); margin-bottom: 8px;">
+            Foco especial para food & beverage</div>
+          <div style="font-family: 'Fraunces', serif; font-size: 20px; font-weight: 500; margin-bottom: 6px;">
+            Conciliação de adquirente setorizada</div>
+          <div style="font-size: 13px; color: var(--steel-soft); line-height: 1.55;">A PROFINX mapeia os repasses da
+            Laranjinha por modalidade (débito, crédito à vista, parcelado, voucher), valida taxas de MDR contratadas vs.
+            taxas efetivas cobradas e sinaliza toda divergência — uma prática que adquirentes raramente fiscalizam por
+            conta própria.</div>
+        </div>
+        <div style="text-align: center; flex-shrink: 0;">
+          <div style="font-size: 40px;">🍕</div>
+          <div
+            style="font-family: 'JetBrains Mono', monospace; font-size: 10px; letter-spacing: .1em; text-transform: uppercase; color: rgba(255,255,255,.6); margin-top: 6px;">
+            1.050 pedidos/mês</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══════════ IV — TRANSFORMAÇÃO ══════════ -->
+    <div class="prop-section">
+      <div class="section-num">IV</div>
+      <div class="prop-section-eyebrow">Capítulo IV · A Ocre em 6 meses</div>
+      <h2 class="prop-section-title">A transformação <em>concreta</em> que vamos construir juntos.</h2>
+      <p class="prop-section-lead">Em 6 meses operando com o BPO ativo, a Ocre Pizza Bar terá um financeiro que trabalha
+        por ela — não contra ela. Cada mês tem um resultado claro e mensurável.</p>
+
+      <div class="prop-timeline">
+        <div class="tl-item">
+          <div class="tl-tag">Primeiros 30 dias</div>
+          <div class="tl-title">Implantação e estruturação</div>
+          <div class="tl-desc">Levantamento documental completo. Configuração das rotinas de conciliação bancária (Itaú)
+            e de adquirente (Laranjinha). Estruturação do plano de contas financeiro e primeiros lançamentos de CP e CR.
+          </div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-tag">Meses 2 e 3</div>
+          <div class="tl-title">Controle e visibilidade</div>
+          <div class="tl-desc">Rotinas semanais ativas. Gestor recebe DRE e fluxo de caixa com regularidade. Primeiros
+            relatórios de ticket médio e receita por canal. Chargeback e taxas de MDR auditados.</div>
+        </div>
+        <div class="tl-item">
+          <div class="tl-tag">Meses 4 a 6</div>
+          <div class="tl-title">Decisão baseada em dados</div>
+          <div class="tl-desc">Histórico financeiro de 3 meses permite projeção confiável. Decisões de cardápio,
+            fornecedores e equipe passam a ser fundamentadas. Gestor opera com liberdade estratégica — o financeiro não
+            o prende mais.</div>
+        </div>
+      </div>
+
+      <div
+        style="margin-top: 32px; padding: 24px 28px; background: var(--paper-warm); border-left: 3px solid var(--brand-primary);">
+        <div
+          style="font-family: 'Fraunces', serif; font-size: 18px; font-weight: 600; margin-bottom: 8px; color: var(--ink);">
+          O benchmark do setor</div>
+        <p style="font-size: 14px; color: var(--ink-muted); line-height: 1.6;">Restaurantes e bares que profissionalizam
+          o financeiro com BPO reduzem em média 12–18% o custo com fornecedores no primeiro semestre — não porque pagam
+          menos, mas porque passam a <strong>negociar com dados</strong> sobre prazo médio de pagamento, histórico de
+          gastos e oportunidades de renegociação.</p>
+      </div>
+    </div>
+
+    <!-- ══════════ V — INVESTIMENTO ══════════ -->
+    <div class="prop-section dark">
+      <div class="section-num" style="opacity:.1;">V</div>
+      <div class="prop-section-eyebrow">Capítulo V · Investimento</div>
+      <h2 class="prop-section-title">O preço de <em>ter clareza financeira</em> todo mês.</h2>
+      <p class="prop-section-lead">A proposta abaixo reflete a operação real da Ocre — calculada com base em volume de
+        pedidos, estrutura bancária, nível de conciliação necessário e complexidade operacional de um food & beverage
+        ativo no Rio de Janeiro.</p>
+
+      <!-- mensalidade -->
+      <h3 style="color: #fff; font-family: 'Fraunces', serif; font-size: 20px; font-weight: 600; margin-bottom: 14px;">
+        Plano BPO Mensal (recorrente)</h3>
+      <div class="invest-card">
+        <div class="invest-row">
+          <span>Conciliação bancária Itaú + Adquirente Laranjinha (mensal)</span>
+          <span class="v">incluso</span>
+        </div>
+        <div class="invest-row">
+          <span>Controle de recebimentos — 1.050 pedidos/mês</span>
+          <span class="v">incluso</span>
+        </div>
+        <div class="invest-row">
+          <span>Controle de contas a pagar — 40 docs/mês</span>
+          <span class="v">incluso</span>
+        </div>
+        <div class="invest-row">
+          <span>DRE + Fluxo de caixa + Painel de indicadores</span>
+          <span class="v">incluso</span>
+        </div>
+        <div class="invest-row">
+          <span>Gerente exclusivo + Atendimento remoto</span>
+          <span class="v">incluso</span>
+        </div>
+        <div class="invest-row">
+          <span>Licença do Sistema de Gestão (Conta Azul)</span>
+          <span class="v">incluso</span>
+        </div>
+        <div class="invest-row">
+          <span>Auditoría de Recebíveis</span>
+          <span class="v">incluso</span>
+        </div>
+        <div class="invest-row total">
+          <span>Mensalidade BPO</span>
+          <span class="v">R$ 2.500/mês</span>
+        </div>
+        <div class="invest-row">
+          <span>Desconto Promocional nos primeiros 3 meses</span>
+          <span class="v">R$ 300,00/mês</span>
+        </div>
+      </div>
+
+      <!-- implantação -->
+      <h3 style="color: #fff; font-family: 'Fraunces', serif; font-size: 20px; font-weight: 600; margin: 32px 0 14px;">
+        Taxa de Implantação (cobrança única)</h3>
+      <div class="invest-card">
+        <div class="invest-row">
+          <span>Levantamento documental e diagnóstico financeiro inicial</span>
+          <span class="v">incluso</span>
+        </div>
+        <div class="invest-row">
+          <span>Configuração do plano de contas e integração bancária</span>
+          <span class="v">incluso</span>
+        </div>
+        <div class="invest-row">
+          <span>Parametrização das rotinas de conciliação (Itaú + Laranjinha)</span>
+          <span class="v">incluso</span>
+        </div>
+        <div class="invest-row">
+          <span>Treinamento do gestor e onboarding operacional</span>
+          <span class="v">incluso</span>
+        </div>
+        <div class="invest-row total total-unica">
+          <span>Taxa de implantação</span>
+          <span class="v">R$ 1.250 <span style="font-size: 14px; color: var(--steel-soft);">único</span></span>
+        </div>
+      </div>
+
+      <!-- condições -->
+      <h3 style="color: #fff; font-family: 'Fraunces', serif; font-size: 20px; font-weight: 600; margin: 32px 0 14px;">
+        Condições comerciais</h3>
+      <div class="invest-card">
+        <div class="invest-row">
+          <span>Forma de pagamento</span>
+          <span class="v">PIX ou boleto bancário</span>
+        </div>
+        <div class="invest-row">
+          <span>Vencimento mensal</span>
+          <span class="v">Dia 05 de cada mês</span>
+        </div>
+        <div class="invest-row">
+          <span>Vigência do contrato</span>
+          <span class="v">12 meses</span>
+        </div>
+        <div class="invest-row">
+          <span>Taxa de implantação</span>
+          <span class="v">À vista na assinatura do contrato</span>
+        </div>
+        <div class="invest-row">
+          <span>Início dos trabalhos</span>
+          <span class="v">Em até 7 dias úteis após assinatura</span>
+        </div>
+        <div class="invest-row">
+          <span>Reajuste anual</span>
+          <span class="v">IPCA do período</span>
+        </div>
+        <div class="invest-row">
+          <span>Desconto Promocional</span>
+          <span class="v">R$ 300,00 nos 3 primeiros meses</span>
+        </div>
+      </div>
+
+      <div class="invest-meta">
+        <strong
+          style="color: var(--azure); font-size: 12px; letter-spacing: .08em; text-transform: uppercase;">Observações</strong><br>
+        Carência de 30 dias corridos para cancelamento sem multa após o 6º mês de contrato. Rescisão antecipada nos
+        primeiros 6 meses: multa de 30% do valor restante da vigência. A PROFINX não acessa credenciais bancárias para
+        movimentação — apenas leitura de extratos e relatórios.
+      </div>
+    </div>
+
+    <!-- ══════════ CTA FINAL ══════════ -->
+    <div class="prop-cta">
+      <div class="cta-eyebrow">Próximo passo</div>
+      <h2 class="cta-title">Ocre, vamos <em>começar?</em></h2>
+      <p class="cta-sub">Responda com um simples <strong style="color: var(--azure);">"vamos"</strong> no WhatsApp e em
+        até 7 dias úteis a Ocre Pizza Bar começa a ter um financeiro que trabalha por você — não contra você.</p>
+      <a href="https://wa.me/5541992382026?text=Olá!%20Recebi%20a%20proposta%20da%20PROFINX%20para%20a%20Ocre%20Pizza%20Bar%20e%20quero%20seguir%20com%20o%20BPO."
+        target="_blank" class="cta-btn">Falar com a PROFINX no WhatsApp →</a>
+    </div>
+
+    <!-- FOOTER -->
+    <div class="prop-footer">
+      <div class="prop-footer-brand">
+        <img src="https://www.profinx.com.br/logo-branco.svg" alt="PROFINX BPO Financeiro" class="footer-logo">
+      </div>
+      <div>contato@profinx.com.br · www.profinx.com.br</div>
+      <div style="margin-top: 6px; opacity: .6;">Proposta válida por 30 dias a partir da data de emissão · Uso exclusivo
+        da Ocre Pizza Bar</div>
+    </div>
+
+  </div>
+
+  <script>
+    // data e número de proposta dinâmicos
+    const now = new Date();
+    const d = String(now.getDate()).padStart(2, '0');
+    const m = String(now.getMonth() + 1).padStart(2, '0');
+    const y = now.getFullYear();
+    document.getElementById('coverDate').textContent = `${d}/${m}/${y}`;
+    // número de proposta baseado em timestamp truncado
+    const ts = Date.now().toString().slice(-5);
+    document.getElementById('propNum').textContent = `PBF-${y}-${ts}`;
+
+    // copiar mensagem para WhatsApp
+    function copiarMsg() {
+      const msg = `Olá! 🍕\n\nA PROFINX preparou uma proposta de BPO Financeiro exclusiva para a Ocre Pizza Bar:\n\n📊 Escopo: BPO Financeiro completo (conciliação Itaú + Laranjinha, 1.050 pedidos/mês, 40 contas a pagar, DRE, fluxo de caixa e painel de indicadores)\n💰 Mensalidade: R$ 2.500/mês\n⚙️ Implantação: R$ 1.250 (único)\n📅 Vigência: 12 meses\n✅ Início: em até 7 dias úteis após assinatura\n\nFico à disposição para qualquer dúvida!\n\nPROFINX BPO Financeiro`;
+      navigator.clipboard.writeText(msg).then(() => {
+        alert('✓ Mensagem copiada — cole no WhatsApp do cliente');
+      }).catch(() => {
+        const ta = document.createElement('textarea');
+        ta.value = msg; document.body.appendChild(ta);
+        ta.select(); document.execCommand('copy'); document.body.removeChild(ta);
+        alert('✓ Mensagem copiada — cole no WhatsApp do cliente');
+      });
+    }
+  </script>
+</body>
+
+</html>
